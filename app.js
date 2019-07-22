@@ -17,8 +17,7 @@ mongoose.set('useCreateIndex', true);
 
 // if yelp_camp db doesn't exist, will create one
 // mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
-const dbUrl = "mongodb+srv://wangtian:970817@cluster0-xltq9.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(dbUrl, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
